@@ -106,7 +106,7 @@ export default function WebhookPage() {
         </div>
 
         {/* グラフ */}
-        <Card className="bg-white border-0 shadow-md rounded-2xl mb-6">
+        <Card className="bg-white border-0 shadow-md rounded-2xl mb-6 overflow-hidden">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
               <div>

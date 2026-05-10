@@ -54,7 +54,7 @@ export default function Home() {
           <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 mb-6 text-sm px-4 py-1">
             Lancers 提案デモ
           </Badge>
-          <h1 className="text-5xl font-bold text-slate-900 leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
             AI × 習慣 × 継続
           </h1>
           <p className="text-xl text-slate-500 mb-8">
@@ -122,10 +122,10 @@ export default function Home() {
                 400m 混合フリーリレー
               </p>
               <p className="flex items-baseline gap-3 flex-wrap">
-                <span className="text-5xl font-black text-emerald-400 tracking-tight">
+                <span className="text-4xl sm:text-5xl font-black text-emerald-400 tracking-tight">
                   4:06.97
                 </span>
-                <span className="text-2xl font-bold text-white">
+                <span className="text-xl sm:text-2xl font-bold text-white">
                   世界記録樹立
                 </span>
               </p>

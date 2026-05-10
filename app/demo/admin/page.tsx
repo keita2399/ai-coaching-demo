@@ -59,13 +59,13 @@ export default function AdminPage() {
 
         <div className="grid lg:grid-cols-3 gap-6">
           {/* 会員一覧テーブル */}
-          <div className="lg:col-span-2">
-            <Card className="bg-white border-0 shadow-md rounded-2xl">
+          <div className="lg:col-span-2 min-w-0">
+            <Card className="bg-white border-0 shadow-md rounded-2xl overflow-hidden">
               <CardContent className="p-0">
                 <div className="px-6 py-4 border-b border-slate-100">
                   <h2 className="font-semibold text-slate-700">会員一覧</h2>
                 </div>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto w-full">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-slate-100">

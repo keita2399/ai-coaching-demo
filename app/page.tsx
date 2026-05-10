@@ -67,24 +67,88 @@ export default function Home() {
       </section>
 
       {/* 差別化 */}
-      <section className="py-16 px-4 bg-emerald-600 text-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">なぜ私がこの案件に応募したか</h2>
-          <blockquote className="text-lg leading-relaxed text-emerald-50 text-left bg-emerald-700/50 rounded-2xl p-8 shadow-xl">
-            <p className="mb-4">
-              水泳でインターハイに出場し、毎日同じ時間に同じ練習を、
-              何年も繰り返した。仲間と励まし合い、続けることの価値を身体で知っている。
+      <section className="relative py-20 px-4 bg-slate-900 text-white overflow-hidden">
+        {/* 水・波の抽象背景 */}
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
+          <svg
+            className="absolute bottom-0 left-0 w-full opacity-10"
+            viewBox="0 0 1440 320"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="#10b981"
+              d="M0,192L48,181.3C96,171,192,149,288,154.7C384,160,480,192,576,186.7C672,181,768,139,864,138.7C960,139,1056,181,1152,192C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            />
+          </svg>
+          <svg
+            className="absolute bottom-0 left-0 w-full opacity-6"
+            viewBox="0 0 1440 320"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="#34d399"
+              d="M0,256L60,240C120,224,240,192,360,186.7C480,181,600,203,720,213.3C840,224,960,224,1080,202.7C1200,181,1320,139,1380,117.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+            />
+          </svg>
+        </div>
+
+        <div className="relative max-w-3xl mx-auto">
+          <p className="text-emerald-400 text-sm font-semibold tracking-widest uppercase mb-4 text-center">
+            Why I applied
+          </p>
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            なぜ私がこの案件に応募したか
+          </h2>
+
+          <div className="border-l-4 border-emerald-500 pl-8 space-y-6">
+            <p className="text-slate-300 text-lg leading-relaxed">
+              私は30代で離婚を機に酒に溺れ、健康診断で問題が出たことをきっかけに、
+              子供の頃に少しやっていた水泳を再開しました。
+              <span className="text-slate-400">最初はまともに泳げませんでした。</span>
             </p>
-            <p className="mb-4">
-              世界記録は才能ではなく、<strong className="text-white">習慣・規律化・継続</strong>の積み上げだった。
-              専門でしたまでは間違いありません。
+
+            <p className="text-slate-300 text-lg leading-relaxed">
+              そこから規律と継続だけを頼りに練習を積み——
             </p>
-            <p className="mb-4">
-              ユーザーがどこで躓き、何があれば続けられるのか——
-              この設計判断に、私の実体験を活かしたいと考えています。
+
+            {/* 世界記録ハイライト */}
+            <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl px-6 py-5">
+              <p className="text-emerald-300 text-sm font-semibold mb-1">
+                2010年　第14回千葉マスターズ水泳競技大会
+              </p>
+              <p className="text-white text-lg font-bold mb-1">
+                400m 混合フリーリレー
+              </p>
+              <p className="flex items-baseline gap-3 flex-wrap">
+                <span className="text-5xl font-black text-emerald-400 tracking-tight">
+                  4:06.97
+                </span>
+                <span className="text-2xl font-bold text-white">
+                  世界記録樹立
+                </span>
+              </p>
+              <p className="text-slate-400 text-sm mt-2">
+                後に 800m 混合フリーリレーでも世界記録を更新
+              </p>
+            </div>
+
+            <p className="text-slate-300 text-lg leading-relaxed">
+              私自身が、健康を崩した状態から
+              <strong className="text-white">「規律・習慣化・継続」</strong>
+              だけで人生を取り戻したユーザー像そのものです。
             </p>
-            <p className="text-emerald-200 text-sm mt-6 text-right">— 松尾慶太（フリーランスエンジニア）</p>
-          </blockquote>
+
+            <p className="text-slate-300 text-lg leading-relaxed">
+              ユーザーがどこで挫折し、何があれば続けられるのか——
+              その設計判断に、私の実体験を活かせると考えています。
+            </p>
+          </div>
+
+          <p className="text-slate-500 text-sm mt-10 text-right">
+            — 松尾慶太（フリーランスエンジニア）
+          </p>
         </div>
       </section>
 

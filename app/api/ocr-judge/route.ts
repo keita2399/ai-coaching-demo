@@ -1,9 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getGeminiModel } from "@/lib/gemini";
 
+function extractMimeType(dataUrl: string): string {
+  const match = dataUrl.match(/^data:(image\/\w+);base64,/);
+  return match ? match[1] : "image/jpeg";
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { imageBase64 } = await req.json();
+
+    if (!imageBase64) {
+      return NextResponse.json({ error: "画像データがありません" }, { status: 400 });
+    }
+
+    const mimeType = extractMimeType(imageBase64);
+    const base64Data = imageBase64.replace(/^data:image\/\w+;base64,/, "");
 
     const model = getGeminiModel();
     const prompt = `あなたは健康コーチングプログラムの審査AIです。
@@ -28,20 +40,20 @@ JSON以外の文字は一切返さないでください。`;
 
     const imagePart = {
       inlineData: {
-        data: imageBase64.replace(/^data:image\/\w+;base64,/, ""),
-        mimeType: "image/jpeg" as const,
+        data: base64Data,
+        mimeType: mimeType as "image/jpeg" | "image/png" | "image/webp",
       },
     };
 
     const result = await model.generateContent([prompt, imagePart]);
     const text = result.response.text().trim();
-
     const cleaned = text.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
     const parsed = JSON.parse(cleaned);
 
     return NextResponse.json(parsed);
   } catch (error) {
-    console.error("OCR judge error:", error);
-    return NextResponse.json({ error: "処理中にエラーが発生しました" }, { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("OCR judge error:", message);
+    return NextResponse.json({ error: `AI処理エラー: ${message}` }, { status: 500 });
   }
 }

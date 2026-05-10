@@ -77,11 +77,11 @@ export default function OcrPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ imageBase64 }),
       });
-      if (!res.ok) throw new Error("API error");
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "API error");
       setResult(data);
-    } catch {
-      setError("AIの処理中にエラーが発生しました。APIキーを確認してください。");
+    } catch (e) {
+      setError(`エラー: ${e instanceof Error ? e.message : "不明なエラー"}`);
     } finally {
       setLoading(false);
     }
